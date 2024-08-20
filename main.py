@@ -33,7 +33,7 @@ with Diagram("K8s-VulnSage", show=False, direction="TB", graph_attr=graph_attr):
 
     # Part 1 and 2: Development and Infrastructure
     with Cluster("Development and Infrastructure"):
-        developer = Custom("Developer", "./developer.png")
+        developer = Custom("Developer", "resources/developer.png")
         fork_repo = Github("Fork Repo")
         pr_checks = Jenkins("PR Checks")
         org_repo = Github("Org Repo")
@@ -41,9 +41,9 @@ with Diagram("K8s-VulnSage", show=False, direction="TB", graph_attr=graph_attr):
         docker_hub = Docker("Docker Hub")
         github_release = Github("GitHub Release")
         
-        helm_charts = Custom("Helm Charts","./helm.png")
+        helm_charts = Custom("Helm Charts","resources/helm.png")
         
-        packer = Custom("Packer", "./packer.png")
+        packer = Custom("Packer", "resources/packer.png")
         jenkins_ami = EC2Ami("Jenkins AMI")
         terraform_jenkins = Terraform("Terraform (Jenkins)")
         jenkins_ec2 = EC2("Jenkins EC2")
@@ -69,48 +69,48 @@ with Diagram("K8s-VulnSage", show=False, direction="TB", graph_attr=graph_attr):
                     virtual_service = Istio("Virtual Service")
                     cert_manager = Deploy("Cert Manager")
                     external_dns = Deploy("External DNS")
-                    envoy_istio = Custom("Envoy", "./envoy.png")
+                    envoy_istio = Custom("Envoy", "resources/envoy.png")
 
                 with Cluster("webapp-cve-producer"):
                     cve_operator = Deploy("CVE Operator")
                     github_monitor = CRD("GithubReleaseMonitor CRD")
                     github_release_cr = CRD("GithubRelease CR")
                     github_release_job = Job("GithubRelease Job")
-                    envoy_producer = Custom("Envoy", "./envoy.png")
+                    envoy_producer = Custom("Envoy", "resources/envoy.png")
 
                 with Cluster("kafka"):
                     kafka = Kafka("Kafka")
                     kafka_hpa = Deploy("Kafka HPA")
-                    envoy_kafka = Custom("Envoy", "./envoy.png")
+                    envoy_kafka = Custom("Envoy", "resources/envoy.png")
 
                 with Cluster("webapp-cve-consumer"):
                     consumer = Deploy("Consumer")
                     consumer_hpa = Deploy("Consumer HPA")
-                    envoy_consumer = Custom("Envoy", "./envoy.png")
+                    envoy_consumer = Custom("Envoy", "resources/envoy.png")
 
                 with Cluster("postgres"):
                     postgres = StatefulSet("PostgreSQL")
                     postgres_pv = PV("Persistent Volume")
                     postgres_netpol = NetworkPolicy("Network Policy")
-                    envoy_postgres = Custom("Envoy", "./envoy.png")
+                    envoy_postgres = Custom("Envoy", "resources/envoy.png")
 
                 with Cluster("monitoring"):
                     grafana = Grafana("Grafana")
                     kiali = Custom("Kiali", "./kiali.png")
                     prometheus = Prometheus("Prometheus")
                     tempo = Jaeger("Tempo")
-                    envoy_monitoring = Custom("Envoy", "./envoy.png")
+                    envoy_monitoring = Custom("Envoy", "resources/envoy.png")
 
                 with Cluster("cve-rag-app"):
                     embedding_job = Job("Embedding Job")
                     cve_rag_app = Deploy("CVE RAG App")
                     cve_rag_hpa = Deploy("CVE RAG HPA")
-                    streamlit = Custom("Streamlit App", "./streamlit.png")
+                    streamlit = Custom("Streamlit App", "resources/streamlit.png")
                     envoy_rag = Custom("Envoy", "./envoy.png")
 
                 with Cluster("amazon-cloudwatch"):
                     fluent_bit = DaemonSet("Fluent Bit")
-                    envoy_cloudwatch = Custom("Envoy", "./envoy.png")
+                    envoy_cloudwatch = Custom("Envoy", "resources/envoy.png")
 
             node2 = EC2("Node 2\n(Similar to Node 1)")
             node3 = EC2("Node 3\n(Similar to Node 1)")
@@ -119,8 +119,8 @@ with Diagram("K8s-VulnSage", show=False, direction="TB", graph_attr=graph_attr):
         nlb = ELB("AWS NLB")
         cloudwatch = Cloudwatch("CloudWatch")
         github_ext = Github("GitHub")
-        pinecone = Custom("Pinecone", "./pincone.png")
-        groq = Custom("Groq (LLama3)", "./groq.png")
+        pinecone = Custom("Pinecone", "resources/pincone.png")
+        groq = Custom("Groq (LLama3)", "resources/groq.png")
 
         # AWS Secrets Manager
         secrets_manager = SecretsManager("Secrets Manager")
