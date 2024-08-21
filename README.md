@@ -66,14 +66,17 @@ The architecture diagram is generated using the `diagrams` Python library. To up
 4. CVE RAG app processes data for AI-powered analysis.
 
 ### Security
-- AWS Secrets Manager for secret management.
-- Istio for secure service-to-service communication.
-- Network policies restrict unnecessary communication.
+- AWS Secrets Manager: Manages sensitive information securely, ensuring that secrets are stored and accessed in a controlled manner.
+- SOPS: Used for managing secrets within configuration files, enabling encryption and secure handling of secrets in version control systems.
+- Istio: Ensures secure service-to-service communication within the service mesh by providing mutual TLS, authentication, and authorization.
+- Network Policies: Restrict unnecessary communication between pods, enhancing security by limiting exposure to only what is necessary.
+- Cert-Manager: Used to implement HTTPS by automating the issuance and renewal of TLS certificates, ensuring secure communication for all services.
 
 ### Monitoring and Observability
-- Grafana, Prometheus, and Tempo for monitoring and tracing.
-- Kiali for service mesh visualization.
-- Fluent Bit exports logs to AWS CloudWatch.
+- Grafana, Prometheus, and Tempo: Used for monitoring and tracing. Grafana provides a centralized dashboard for visualizing metrics and logs, Prometheus handles metrics collection and storage, and Tempo is used for distributed tracing.
+- Kiali: Facilitates service mesh visualization, allowing for better understanding and management of the service mesh within the architecture.
+- Fluent Bit: Logs are exported to AWS CloudWatch, ensuring that all logs are centralized and easily accessible for analysis and troubleshooting.
+- OpenTelemetry: Implemented for tracing, providing end-to-end visibility into the system by collecting, processing, and exporting traces across the entire application stack.
 
 ## Contributing
 
