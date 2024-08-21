@@ -1,4 +1,4 @@
-# CVE Management System Architecture
+# K8s-VulnSage System Architecture
 
 This repository contains the architecture diagram and documentation for K8s-VulnSage.
 
@@ -6,7 +6,7 @@ This repository contains the architecture diagram and documentation for K8s-Vuln
 
 ## Overview
 
-Our CVE Management System is a microservices-based architecture deployed on Amazon EKS. It's designed to efficiently collect, process, store, and analyze Common Vulnerabilities and Exposures (CVEs) data.
+Our K8s-VulnSage System is a microservices-based architecture deployed on Amazon EKS. It's designed to efficiently collect, process, store, and analyze Common Vulnerabilities and Exposures (CVEs) data.
 
 ## Key Components
 
