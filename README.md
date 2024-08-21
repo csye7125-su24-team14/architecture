@@ -65,6 +65,12 @@ The architecture diagram is generated using the `diagrams` Python library. To up
 3. CVE consumer reads from Kafka and stores in PostgreSQL.
 4. CVE RAG app processes data for AI-powered analysis.
 
+### User Interface
+- Streamlit-Based App: Developed using Streamlit to provide an interactive and user-friendly web interface. This app utilizes Retrieval-Augmented Generation (RAG) to deliver an AI-powered experience for querying and interacting with CVE data.
+- Llama3 Model: Leverages the Llama3 model for generating detailed and contextually accurate responses based on the CVE data.
+- AllMpnetBaseV2 Model: Used for creating embeddings, enhancing the app’s capability to process and understand CVE-related information.
+- Pinecone: Implements Pinecone for storing and efficiently retrieving embeddings, ensuring fast and scalable access to vector-based information.
+
 ### Security
 - AWS Secrets Manager: Manages sensitive information securely, ensuring that secrets are stored and accessed in a controlled manner.
 - SOPS: Used for managing secrets within configuration files, enabling encryption and secure handling of secrets in version control systems.
